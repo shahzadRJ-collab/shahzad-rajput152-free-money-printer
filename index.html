@@ -1,1 +1,138 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shahzad Rajput152 | Free Money Printer AI Studio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1020;color:#f7f8ff;font-family:Arial,sans-serif}
+header{padding:18px;background:#151c30;border-bottom:1px solid #303951}
+.logo{color:#9b8cff;font-size:12px;font-weight:bold;letter-spacing:2px}
+h1{font-size:23px;margin:9px 0}
+p{color:#aeb8d0;line-height:1.6}
+main{max-width:950px;margin:auto;padding:18px}
+.hero{padding:22px;border-radius:18px;background:linear-gradient(130deg,#30275c,#172a43);border:1px solid #514779}
+.hero h2{font-size:29px;line-height:1.2}
+button,select,textarea{font:inherit}
+button{cursor:pointer}
+.lang{float:right;background:#242c43;color:white;border:1px solid #47516b;padding:9px;border-radius:9px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.tool{background:#151c30;color:white;text-align:left;padding:15px;border:1px solid #303951;border-radius:14px;min-height:125px}
+.tool:focus,.tool.active{border-color:#a18aff;background:#242443}
+.emoji{font-size:26px}
+.tool h3{font-size:15px;margin:10px 0 5px}
+.tool p{font-size:12px;margin:0}
+section{margin-top:22px}
+.panel{background:#151c30;border:1px solid #303951;padding:17px;border-radius:16px}
+label{display:block;font-size:13px;margin:15px 0 8px}
+textarea,select{width:100%;padding:12px;background:#0b1020;color:white;border:1px solid #3b4560;border-radius:9px}
+textarea{min-height:100px}
+.primary{margin-top:16px;width:100%;padding:14px;border:0;border-radius:10px;background:linear-gradient(100deg,#a18aff,#67e6c0);color:#101326;font-weight:bold}
+#photo{width:100%;margin-top:10px}
+img{max-width:100%;max-height:300px;display:block;margin-top:12px;border-radius:10px}
+#result{white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1020;padding:12px;border-radius:9px;color:#67e6c0;font-size:13px}
+footer{text-align:center;padding:24px;color:#7e89a5;font-size:12px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}main{padding:28px}}
+</style>
+</head>
+<body>
+<header>
+<button class="lang" id="lang">اردو</button>
+<div class="logo">SR152 • AI CREATIVE STUDIO</div>
+<h1>Shahzad Rajput152</h1>
+<div>FREE MONEY PRINTER AI STUDIO</div>
+<p id="intro">Your ideas. Your stories. Your videos — all in one creative workspace.</p>
+</header>
+<main>
+<div class="hero">
+<div>✨ YOUR AI VIDEO WORKSPACE</div>
+<h2 id="welcome">Create amazing short videos</h2>
+<p id="sub">Choose a tool, describe your idea and prepare your next video project.</p>
+</div>
+
+<section>
+<h2 id="choose">🎬 Choose your tool</h2>
+<div class="grid" id="tools">
+<button class="tool active" data-id="script"><div class="emoji">✍️</div><h3>Script to Video</h3><p>Turn a story idea into a video project.</p></button>
+<button class="tool" data-id="image"><div class="emoji">🖼️</div><h3>Image to Video</h3><p>Upload your photo and describe animation.</p></button>
+<button class="tool" data-id="cartoon"><div class="emoji">🐻</div><h3>Cartoon AI</h3><p>Cartoon stories and characters.</p></button>
+<button class="tool" data-id="veggie"><div class="emoji">🥕</div><h3>Vegetable Videos</h3><p>Funny tomato, carrot and potato stories.</p></button>
+<button class="tool" data-id="vfx"><div class="emoji">✨</div><h3>VFX Shorts</h3><p>Magic, glow, lightning and visual effects.</p></button>
+<button class="tool" data-id="voice"><div class="emoji">🎙️</div><h3>Voice & Subtitles</h3><p>Plan narration and captions.</p></button>
+</div>
+</section>
+
+<section class="panel">
+<h2 id="toolTitle">✍️ Script to Video</h2>
+<p id="toolDesc">Describe your video idea below.</p>
+<label id="topicLabel" for="topic">Topic or script</label>
+<textarea id="topic" placeholder="A little baby discovers a magical garden..."></textarea>
+<div id="upload" hidden>
+<label for="photo">Upload your image</label>
+<input type="file" id="photo" accept="image/*">
+<img id="preview" hidden alt="Image preview">
+</div>
+<label for="language" id="languageLabel">Language</label>
+<select id="language"><option>English</option><option>Urdu</option><option>Hindi</option></select>
+<label for="format" id="formatLabel">Video format</label>
+<select id="format"><option>9:16 — Shorts / Reels</option><option>16:9 — YouTube</option><option>1:1 — Square</option></select>
+<label for="duration" id="durationLabel">Duration</label>
+<select id="duration"><option>15 seconds</option><option>30 seconds</option><option>60 seconds</option></select>
+<button class="primary" id="generate">Prepare Video Project</button>
+<div id="result" hidden></div>
+<p id="disclaimer">Note: This dashboard is functional, but AI generation and MP4 rendering still need a backend.</p>
+</section>
+</main>
+<footer>Shahzad Rajput152 • Free Money Printer AI Studio</footer>
+<script>
+let selected="script",urdu=false;
+const data={
+script:["Script to Video","Describe your story or video idea.","اسکرپٹ سے ویڈیو","اپنی کہانی یا ویڈیو کا خیال لکھیں۔"],
+image:["Image to Video","Upload a photo and describe the movement you want.","تصویر سے ویڈیو","تصویر اپ لوڈ کریں اور حرکت کی تفصیل لکھیں۔"],
+cartoon:["Cartoon AI","Describe the characters and their adventure.","کارٹون AI","کرداروں اور ان کی کہانی کی تفصیل لکھیں۔"],
+veggie:["Vegetable Videos","Example: A brave tomato saves a garden.","سبزیوں کی ویڈیوز","مثال: ایک بہادر ٹماٹر باغ کو بچاتا ہے۔"],
+vfx:["VFX Shorts","Describe magic, lightning or cinematic effects.","VFX شارٹس","جادو، بجلی یا سنیماٹک ایفیکٹس لکھیں۔"],
+voice:["Voice & Subtitles","Write your narration or caption requirements.","آواز اور سب ٹائٹلز","نریشن یا سب ٹائٹلز کی تفصیل لکھیں۔"]
+};
+function updateTool(){
+ document.querySelectorAll(".tool").forEach(b=>b.classList.toggle("active",b.dataset.id===selected));
+ let d=data[selected];
+ document.getElementById("toolTitle").textContent=(selected==="script"?"✍️ ":selected==="image"?"🖼️ ":selected==="cartoon"?"🐻 ":selected==="veggie"?"🥕 ":selected==="vfx"?"✨ ":"🎙️ ")+(urdu?d[2]:d[0]);
+ document.getElementById("toolDesc").textContent=urdu?d[3]:d[1];
+ document.getElementById("upload").hidden=selected!=="image";
+ document.getElementById("result").hidden=true;
+}
+document.querySelectorAll(".tool").forEach(b=>b.addEventListener("click",()=>{selected=b.dataset.id;updateTool()}));
+document.getElementById("lang").onclick=()=>{
+ urdu=!urdu;
+ document.getElementById("lang").textContent=urdu?"English":"اردو";
+ document.getElementById("intro").textContent=urdu?"آپ کے خیالات، کہانیاں اور ویڈیوز ایک ہی جگہ۔":"Your ideas. Your stories. Your videos — all in one creative workspace.";
+ document.getElementById("welcome").textContent=urdu?"شاندار شارٹ ویڈیوز بنائیں":"Create amazing short videos";
+ document.getElementById("sub").textContent=urdu?"ٹول منتخب کریں اور اپنے ویڈیو پروجیکٹ کا آغاز کریں۔":"Choose a tool, describe your idea and prepare your next video project.";
+ document.getElementById("choose").textContent=urdu?"🎬 اپنا ٹول منتخب کریں":"🎬 Choose your tool";
+ document.getElementById("topicLabel").textContent=urdu?"موضوع یا اسکرپٹ":"Topic or script";
+ document.getElementById("languageLabel").textContent=urdu?"زبان":"Language";
+ document.getElementById("formatLabel").textContent=urdu?"ویڈیو فارمیٹ":"Video format";
+ document.getElementById("durationLabel").textContent=urdu?"دورانیہ":"Duration";
+ document.getElementById("generate").textContent=urdu?"پروجیکٹ تیار کریں":"Prepare Video Project";
+ updateTool();
+};
+document.getElementById("photo").onchange=e=>{
+ let f=e.target.files[0];if(!f)return;
+ document.getElementById("preview").src=URL.createObjectURL(f);
+ document.getElementById("preview").hidden=false;
+};
+document.getElementById("generate").onclick=()=>{
+ let topic=document.getElementById("topic").value.trim();
+ if(selected!=="image"&&!topic){alert(urdu?"پہلے موضوع لکھیں۔":"Please enter your video idea first.");return}
+ if(selected==="image"&&!document.getElementById("photo").files.length){alert("Please upload an image first.");return}
+ let project={tool:selected,topic,language:document.getElementById("language").value,format:document.getElementById("format").value,duration:document.getElementById("duration").value};
+ let r=document.getElementById("result");r.hidden=false;
+ r.textContent=(urdu?"پروجیکٹ کی ترتیبات تیار ہیں۔ AI ویڈیو بیک اینڈ ابھی منسلک نہیں۔\n":"Project settings prepared. AI generation backend is not connected yet.\n")+JSON.stringify(project,null,2);
+};
+</script>
+</body>
+</html>
